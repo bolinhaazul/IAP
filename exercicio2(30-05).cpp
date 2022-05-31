@@ -6,36 +6,24 @@ using namespace std;
 
 int main()
 {
-    char nome1[20],nome2[20],nome3[20];
-    cout<<"insira o nome da primeira pessoa "<<endl;
-    cin>>nome1;
-    cout<<"insira o nome da segunda pessoa "<< endl;
-    cin>>nome2;
-    cout<<"insira o nome da terceira pessoa "<<endl;
-    cin>>nome3;
-    if(strcmp(nome1,nome2)<0 && strcmp(nome1,nome3)<<0){
-        if(strcmp(nome2,nome3)){
-            cout<<nome1<<", "<<nome2<<", "<<nome3<<endl;
-        }
-        else{
-            cout<<nome1<<", "<<nome3<<", "<<nome2<<endl;
-        }
-    }   
-    if(strcmp(nome2,nome1)<0 && strcmp(nome2,nome3)){
-        if(strcmp(nome1,nome3)){
-            cout<<nome2<<", "<<nome1<<", "<<nome3<<endl;
-        }
-        else{
-            cout<<nome2<<", "<<nome3<<", "<<nome1<<endl;
+    char nome[3][20],aux[20];
+    int i=0, j=0;
+    for(i=0;i<3;i++){
+        cout<<"insira o nome da "<<i+1<<" pessoa"<<endl;
+        cin>>nome[i];
+    }
+    cout<<"os nomes na ordem alfabetica sao"<<endl;
+    for(i=1;i<3;i++){
+    for(j=1;j<3;j++){
+        if(strcmp(nome[j-1],nome[j])>0){
+            strcpy(aux,nome[j-1]);
+            strcpy(nome[j-1],nome[j]);
+            strcpy(nome[j],aux);
         }
     }
-    if(strcmp(nome3,nome1)<0 && strcmp(nome3,nome2)<0){
-        if(strcmp(nome1,nome2)){
-            cout<<nome3<<", "<<nome1<<", "<<nome2<<endl;
-        }
-        else{
-            cout<<nome3<<", "<<nome2<<", "<<nome1<<endl;
-        }
+    }
+    for(j=0;j<3;j++){
+        cout<<nome[j]<<endl;
     }
     return 0;
 }
