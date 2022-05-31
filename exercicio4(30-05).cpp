@@ -10,29 +10,22 @@ int main(){
     cin>>senha;
     cout<<"confirme a senha"<<endl;
     cin>>confirmacao;
-    int deucerto= strcmp(senha,confirmacao);
-    if(deucerto!=0){
-        cout<<"as senhas nao coincidem"<<endl;
-    }
-    if(strlen(confirmacao)<6){
-        cout<<"Senha invalida"<<endl;
-    }
-    for(i=0; strlen(confirmacao)<i;i++){
-        if(isdigit(confirmacao[i])){
+    for(i=0;i<strlen(confirmacao);i++){
+        if(isalpha(confirmacao[i])){
             a++;
         }
-       else if(isalpha(confirmacao[i])){
+        if(isdigit(confirmacao[i])){
             b++;
         }
-       else if(ispunct(confirmacao[i])){
+        if (ispunct(confirmacao[i])){
             c++;
         }
     }
-    if(a!=0 && b!=0 && c!=0){
-        cout<<"cadastro registrado";
-    }
-    else{
-        cout<<"senha invalida";
-    }
+    if (a>0 && b>0 && c>0){
+            cout<<"senha aceita"<<endl;
+        }
+        else{
+            cout<<"senha nao aceita"<<endl;
+        }
     return 0;
 }
