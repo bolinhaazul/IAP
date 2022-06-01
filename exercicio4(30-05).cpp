@@ -3,10 +3,10 @@
 using namespace std;
 int main(){
     char usuario[20], senha[12], confirmacao[12];
-    int a=0,b=0,c=0,i=0;
+    int a=0,b=0,c=0,i=0,d=0,e=0;
     cout<<"digite o nome do usuario"<<endl;
     cin>> usuario;
-    cout<<"digite a senha minimo de 6 caracteres, deve conter letras numeros e pelos menos um caractere especial "<<endl;
+    cout<<"digite a senha "<<endl;
     cin>>senha;
     cout<<"confirme a senha"<<endl;
     cin>>confirmacao;
@@ -20,8 +20,14 @@ int main(){
         if (ispunct(confirmacao[i])){
             c++;
         }
+        if (strlen(confirmacao)>=6){
+            d++;
+        }
+        if (strcmp(senha,confirmacao)==0){
+            e++;
+        }       
     }
-    if (a>0 && b>0 && c>0){
+    if (a>0 && b>0 && c>0 && d>0 && e>0){
             cout<<"senha aceita"<<endl;
         }
         else{
